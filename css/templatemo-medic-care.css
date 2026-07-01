@@ -249,10 +249,95 @@ strong {
   padding-top: 0rem;
 }
 
-.hero .container {
+/*---------------------------------------
+  TEAM              
+-----------------------------------------*/
+.team-item {
   position: relative;
   overflow: hidden;
-  height: 580px;
+  height: 500px;
+  border-radius: 4px;
+}
+
+.team-item .galleryImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.team-item:hover .galleryImage {
+  transform: scale(1.05);
+}
+
+.team-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 48px 20px 20px;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.72));
+  color: #fff;
+}
+
+.team-overlay strong {
+  display: block;
+  font-size: 1.05rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.team-overlay span {
+  display: block;
+  font-size: 0.82rem;
+  opacity: 0.82;
+  margin-top: 3px;
+}
+
+@media (max-width: 767px) {
+  .team-item {
+    height: 280px;
+  }
+}
+
+/*---------------------------------------
+  GALLERY              
+-----------------------------------------*/
+.gallery-item {
+  overflow: hidden;
+  height: 500px;
+}
+
+.gallery-item .galleryImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease, filter 0.4s ease;
+}
+
+.gallery-item:hover .galleryImage {
+  transform: scale(1.05);
+  filter: brightness(0.88);
+}
+
+@media (max-width: 767px) {
+  .gallery-item {
+    height: 260px;
+  }
+}
+
+.hero .carousel {
+  position: relative;
+  overflow: hidden;
+  height: 720px;
+}
+
+.hero .carousel .carousel-item img {
+  object-fit: cover;
+  height: 720px;
+  width: 100%;
 }
 
 .heroText {
@@ -666,6 +751,22 @@ strong {
   color: var(--white-color);
 }
 
+.reviews-thumb figcaption strong {
+  display: block;
+}
+
+.reviews-thumb figcaption span {
+  display: block;
+  margin-top: 3px;
+  font-size: 0.82em;
+}
+  color: rgba(255, 255, 255, 0.8) !important;
+}
+
+.reviews-carousel .owl-item.active.center .reviews-thumb p strong {
+  color: var(--white-color);
+}
+
 .reviews-carousel .owl-nav {
   display: flex;
   justify-content: space-between;
@@ -788,6 +889,34 @@ strong {
 
 .social-icon-link:hover {
   color: var(--primary-color);
+}
+
+/*---------------------------------------
+  WHATSAPP FLOAT BUTTON
+-----------------------------------------*/
+.whatsapp-float {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  z-index: 9999;
+  width: 56px;
+  height: 56px;
+  background-color: #25D366;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  color: #fff;
+  box-shadow: 0 4px 14px rgba(37, 211, 102, 0.5);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  text-decoration: none;
+}
+
+.whatsapp-float:hover {
+  color: #fff;
+  transform: scale(1.1);
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.65);
 }
 
 /*---------------------------------------

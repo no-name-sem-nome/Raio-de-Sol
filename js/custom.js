@@ -50,6 +50,45 @@
     $(window).on("resize", ReviewsNavResize);
     $(document).on("ready", ReviewsNavResize);
 
+    // BOOKING FORM
+    $('#bookingForm').on('submit', function (e) {
+      e.preventDefault();
+
+      var $form     = $(this);
+      var $btn      = $('#submit-button');
+      var $feedback = $('#form-feedback');
+
+      $btn.prop('disabled', true).text('Enviando...');
+      $feedback.hide();
+
+      $.ajax({
+        url: 'send-email.php',
+        method: 'POST',
+        data: $form.serialize(),
+        dataType: 'json',
+        success: function (res) {
+          $feedback
+            .removeClass('text-danger text-success')
+            .addClass(res.success ? 'text-success' : 'text-danger')
+            .text(res.message)
+            .show();
+          if (res.success) {
+            $form[0].reset();
+          }
+        },
+        error: function () {
+          $feedback
+            .removeClass('text-success')
+            .addClass('text-danger')
+            .text('Erro de conexão. Por favor, tente novamente.')
+            .show();
+        },
+        complete: function () {
+          $btn.prop('disabled', false).text('Agendar');
+        }
+      });
+    });
+
     // HREF LINKS
     $('a[href*="#"]').click(function (event) {
       if (
